@@ -3600,8 +3600,8 @@ body.sqs-lightbox-open {
 }
 @font-face {
   font-family: "squarespace-ui-font";
-  src: url("http://assets.squarespace.com/universal/fonts/squarespace-ui-font.eot");
-  src: url("http://assets.squarespace.com/universal/fonts/squarespace-ui-font.eot?#iefix")
+  src: url("squarespace-ui-font.eot");
+  src: url("squarespace-ui-font.eot?#iefix")
       format("embedded-opentype"),
     url("http://assets.squarespace.com/universal/fonts/squarespace-ui-font.svg#squarespace-ui-font")
       format("svg"),
