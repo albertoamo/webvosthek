@@ -3607,7 +3607,7 @@ body.sqs-lightbox-open {
       format("svg"),
     url("squarespace-ui-font.woff")
       format("woff"),
-    url("http://assets.squarespace.com/universal/fonts/squarespace-ui-font.ttf")
+    url("squarespace-ui-font.ttf")
       format("truetype");
   font-weight: normal;
   font-style: normal;
