@@ -17523,7 +17523,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button)
   letter-spacing: 0px;
 }
 .category-nav-font {
-  font-family: "futura-pt", Helvetica, sans-serif;
+  font-family: "tahoma", Helvetica, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
@@ -20612,7 +20612,7 @@ h1 {
   font-size: 22px;
   text-transform: none;
   letter-spacing: 0px;
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 2em;
   line-height: 1.2em;
   text-transform: uppercase;
@@ -20627,7 +20627,7 @@ h2 {
   font-size: 18px;
   text-transform: none;
   letter-spacing: 0px;
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 1.6em;
   line-height: 1.2em;
   text-transform: uppercase;
@@ -20642,7 +20642,7 @@ h3 {
   line-height: 1.2em;
   font-size: 13px;
   letter-spacing: 0px;
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 1.2em;
   line-height: 0.9em;
   text-transform: none;
@@ -20697,7 +20697,7 @@ nav ol {
   font-style: italic;
   text-transform: none;
   letter-spacing: 0px;
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 13px;
   line-height: 1.6em;
   text-transform: uppercase;
@@ -20715,7 +20715,7 @@ nav ol {
   font-style: italic;
   text-transform: none;
   letter-spacing: 0px;
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 13px;
   line-height: 1.6em;
   text-transform: uppercase;
@@ -20790,7 +20790,7 @@ nav ol {
   font-weight: 400;
   font-size: 46px;
   letter-spacing: 0px;
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 42px;
   text-transform: uppercase;
   text-decoration: none;
@@ -21242,7 +21242,7 @@ nav ol {
   font-size: 12px;
   text-transform: none;
   letter-spacing: 0px;
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 14px;
   line-height: 1.6em;
   text-transform: uppercase;
@@ -21435,7 +21435,7 @@ img[data-src].loading {
 }
 #categoryNav ul {
   margin: -0.5em 0;
-  font-family: "futura-pt", Helvetica, sans-serif;
+  font-family: "tahoma", Helvetica, sans-serif;
   font-size: 13px;
   text-transform: uppercase;
   text-decoration: none;
@@ -21543,7 +21543,7 @@ body.collection-type-index.index-loading .sqs-spin {
   font-family: "verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   letter-spacing: 1px;
-  font-family: "futura-pt";
+  font-family: "tahoma";
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-weight: 300;
@@ -21722,7 +21722,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
     font-size: 12px;
     text-transform: none;
     letter-spacing: 0px;
-    font-family: "futura-pt";
+    font-family: "tahoma";
     font-size: 14px;
     line-height: 1.6em;
     text-transform: uppercase;
@@ -21841,7 +21841,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
     font-style: italic;
     text-transform: none;
     letter-spacing: 0px;
-    font-family: "futura-pt";
+    font-family: "tahoma";
     font-size: 13px;
     line-height: 1.6em;
     text-transform: uppercase;
@@ -21898,7 +21898,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
     font-style: italic;
     text-transform: none;
     letter-spacing: 0px;
-    font-family: "futura-pt";
+    font-family: "tahoma";
     font-size: 13px;
     line-height: 1.6em;
     text-transform: uppercase;
@@ -21995,7 +21995,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   }
 }
 .summary-heading-font {
-  font-family: "futura-pt";
+  font-family: "tahoma";
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-weight: 300;
@@ -22009,7 +22009,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   background-repeat: repeat;
 }
 .site-title-font {
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 42px;
   text-transform: uppercase;
   text-decoration: none;
@@ -22028,7 +22028,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   font-style: normal;
 }
 .nav-font {
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 13px;
   line-height: 1.6em;
   text-transform: uppercase;
@@ -22038,7 +22038,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   font-style: normal;
 }
 .heading-1-font {
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 2em;
   line-height: 1.2em;
   text-transform: uppercase;
@@ -22048,7 +22048,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   font-style: normal;
 }
 .heading-2-font {
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 1.6em;
   line-height: 1.2em;
   text-transform: uppercase;
@@ -22058,7 +22058,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   font-style: normal;
 }
 .heading-3-font {
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 1.2em;
   line-height: 0.9em;
   text-transform: none;
@@ -22077,7 +22077,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   font-style: normal;
 }
 .thumb-title-font {
-  font-family: "futura-pt";
+  font-family: "tahoma";
   font-size: 14px;
   line-height: 1.6em;
   text-transform: uppercase;
@@ -22088,7 +22088,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   font-style: normal;
 }
 .category-nav-font {
-  font-family: "futura-pt", Helvetica, sans-serif;
+  font-family: "tahoma", Helvetica, sans-serif;
   font-size: 13px;
   text-transform: uppercase;
   text-decoration: none;
