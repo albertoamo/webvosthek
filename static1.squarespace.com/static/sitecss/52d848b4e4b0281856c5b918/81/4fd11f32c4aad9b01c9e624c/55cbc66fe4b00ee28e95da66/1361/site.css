@@ -6624,7 +6624,7 @@ body:not(.event-like-and-share-buttons) .event-meta-socialicon-container {
   padding: 13px 26px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
@@ -6644,7 +6644,7 @@ body:not(.event-like-and-share-buttons) .event-meta-socialicon-container {
   padding: 21px 34px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
@@ -6664,7 +6664,7 @@ body:not(.event-like-and-share-buttons) .event-meta-socialicon-container {
   padding: 25px 46px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
@@ -15765,7 +15765,7 @@ body:not(.button-style-default) .sqs-editable-button,
 body:not(.button-style-default) .sqs-editable-button-font {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 600;
-  font-family: "proxima-nova";
+  font-family: "verdana";
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 300;
@@ -16029,7 +16029,7 @@ body:not(.button-style-default).button-style-raised
 body:not(.button-style-default) .opentable-block .OT_Find_a_Table {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 600;
-  font-family: "proxima-nova";
+  font-family: "verdana";
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 300;
@@ -16049,7 +16049,7 @@ body:not(.button-style-default) #productDetails .ProductItem-view-cart a,
 body:not(.button-style-default) .productDetails .ProductItem-view-cart a {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 600;
-  font-family: "proxima-nova";
+  font-family: "verdana";
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 300;
@@ -16202,7 +16202,7 @@ body:not(.button-style-default)
   .InlineWidgetConsumerCalendar-monthHeadingSpan {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: 600 !important;
-  font-family: "proxima-nova" !important;
+  font-family: "verdana" !important;
   text-transform: uppercase !important;
   letter-spacing: 1px !important;
   font-weight: 300 !important;
@@ -16310,7 +16310,7 @@ body:not(.sqs-seven-one) .sqs-announcement-bar {
 }
 body:not(.sqs-seven-one) .sqs-announcement-bar-text {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-family: "proxima-nova", arial, sans-serif;
+  font-family: "verdana", arial, sans-serif;
   font-size: 13px;
   text-transform: none;
   letter-spacing: 1px;
@@ -16323,7 +16323,7 @@ body:not(.sqs-seven-one) .sqs-announcement-bar-text a {
 }
 body:not(.sqs-seven-one) .sqs-announcement-bar-text p {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-family: "proxima-nova", arial, sans-serif;
+  font-family: "verdana", arial, sans-serif;
   font-size: 13px;
   text-transform: none;
   letter-spacing: 1px;
@@ -17430,7 +17430,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button)
   text-transform: uppercase;
 }
 .summary-heading-font {
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 1px;
@@ -20590,7 +20590,7 @@ body {
   font-weight: normal;
   line-height: 1.6em;
   font-size: 12px;
-  font-family: "proxima-nova";
+  font-family: "verdana";
   font-size: 15px;
   line-height: 1.8em;
   text-transform: none;
@@ -20656,7 +20656,7 @@ p {
   font-weight: normal;
   line-height: 1.6em;
   font-size: 12px;
-  font-family: "proxima-nova";
+  font-family: "verdana";
   font-size: 15px;
   line-height: 1.8em;
   text-transform: none;
@@ -20678,7 +20678,7 @@ dl {
   font-weight: normal;
   line-height: 1.6em;
   font-size: 12px;
-  font-family: "proxima-nova";
+  font-family: "verdana";
   font-size: 15px;
   line-height: 1.8em;
   text-transform: none;
@@ -20833,7 +20833,7 @@ nav ol {
   line-height: 2em;
   font-size: 13px;
   letter-spacing: 0px;
-  font-family: "proxima-nova";
+  font-family: "verdana";
   font-size: 12px;
   line-height: 1em;
   text-transform: none;
@@ -21540,7 +21540,7 @@ body.collection-type-index.index-loading .sqs-spin {
 }
 .sqs-block-summary-v2 .summary-title,
 .sqs-block-summary-v2 .summary-heading {
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   letter-spacing: 1px;
   font-family: "futura-pt";
@@ -22018,7 +22018,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   font-style: normal;
 }
 .site-subtitle-font {
-  font-family: "proxima-nova";
+  font-family: "verdana";
   font-size: 12px;
   line-height: 1em;
   text-transform: none;
@@ -22068,7 +22068,7 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   font-style: normal;
 }
 .body-font {
-  font-family: "proxima-nova";
+  font-family: "verdana";
   font-size: 15px;
   line-height: 1.8em;
   text-transform: none;
@@ -22120,21 +22120,21 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   letter-spacing: 1px;
 }
 .small-button-block-font {
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
   font-style: normal;
 }
 .medium-button-block-font {
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
   font-style: normal;
 }
 .large-button-block-font {
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
@@ -22276,14 +22276,14 @@ html.touch #galleryWrapper .sqs-gallery-design-stacked-slide.sqs-active-slide {
   text-transform: none;
 }
 .system-button-font {
-  font-family: "proxima-nova";
+  font-family: "verdana";
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 300;
   font-style: normal;
 }
 .announcement-bar-font {
-  font-family: "proxima-nova", arial, sans-serif;
+  font-family: "verdana", arial, sans-serif;
   font-size: 13px;
   text-transform: none;
   letter-spacing: 1px;
