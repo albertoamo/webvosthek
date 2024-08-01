@@ -163,7 +163,7 @@ The following image shows the different parameters and setup for the shader:
 <br>-> Highlight and rimlight: Controls intensity, size and position of these effects.
 <br>-> Emission inputs: Controls how emission is done. In our case we control tattoos with a custom mask.
 <br>-> Secondary inputs: Extra masks to handle mechanic effects, such as dissolve.
-
+<br>The results of the shaders together with different setups of parameters can be seen in the following pictures below, where all the characters of the game are shown.
 
 		  </p>
 		  </div>
@@ -174,8 +174,181 @@ The following image shows the different parameters and setup for the shader:
           </div>
         </div>
       </div>
-	  
-	  
+	     
+        
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/toon2.gif" alt="Your GIF">
+        </div>
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/toon3.gif" alt="Your GIF">
+        </div>
+    </div>
+	
+<br>	
+<p class="" style="white-space:pre-wrap;"><strong>Player Dissolve, Teleport & Distortion effects </strong>
+The teleport effect is a little bit more complex. The procedure is similar to the dissolve, but in this case, using a pixelated texture, to give more of a digital disintegration, together with a holographic effect. Both effects are shown with a slower timescale in order to better visualize them.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/toon4.gif" alt="Your GIF">
+        </div>
+    </div>
+<p><br>
+Another two effects created for the Lit Toon Shader are the dissolve and teleport effects. The dissolve effect consists of a noise texture used to clip the player’s mesh in order to make it disappear or merge into the ground.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/toon5.gif" alt="Your GIF">
+        </div>
+    </div>
+<p><br>
+Finally, some of the enemies also feature a distortion glitch effect. These enemies use a different shader, that makes them feel almost transparent, but we control the transparency intensity with the distance, the closer you are, the less transparent the enemy is. At the same time, in order to give some feedback to the player, we created a glitch effect, so that sometimes, this enemy is easier to spot.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/toon6.gif" alt="Your GIF">
+        </div>
+    </div>
+
+<p class="" style="white-space:pre-wrap;"><br><strong>DrawMeshIndirect Foliage</strong><br>
+Due to the complexity of the foliage of the game, which we can count in hundred thousand instances per level, I had to implement a Chunk/Patch system to render all the grass in a more performance wise way. This patch system uses a Quadtree to determine in which chunk the camera is, and determine the rendering of neighbor patches according to it.
+
+To avoid redoing all the foliage pass by the artist team, we conserved the current Unity terrain grass positioning, but the system automatically switches off the rendering system by Unity and uses this custom architecture we created.
+
+The architecture collects all the grass instances by type, and generates a certain level of LODs for each chunk, so for further distances, their lower lod version is used. As seen in the following picture, different chunks are rendered. </p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/foliage1.png" alt="Your GIF">
+        </div>
+    </div> 
+  
+<p><br>
+In terms of rendering, drawmeshinstancedindirect is used to render each instance type. This allow us to draw thousands of grass instances in a single draw call, each one of them with its own mesh information with the help of structured buffers within compute shaders. The following code samples show a part of how the system works.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/foliage2.gif" alt="Your GIF">
+        </div>
+    </div>
+<p><br>
+In the previous video, we can see how the different chunks of grass pop, done on purpose to show how the different lod chunks appear when the system working. A fade effect was later added to reduce this effect.
+<br><br>
+The system dramatically reduced 2ms of render time to 0.15ms.
+</p>
+  
+<p class="" style="white-space:pre-wrap;"><strong>Misc: Capsule Instanced Shader</strong><br>
+We needed to render a high amount of drone capsules, with different setup on their helix and different movement. To do so used shaders in order to control the rotation of the helix and the spinning fan. The same shader is applied to every drone, which, with instancing, you can control these parameters and make the illusion of many different capsules but being rendered at the same time. In the first picture, we can see how the different parts of the helix, are painted with different vertex colors, in order to control them individually. 
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/capsule1.png" alt="Your GIF">
+        </div>
+    </div> 
+  
+<p><br>
+The given video, shows the drones at work, with the shadergraph sample provided below. To do the proper movement of the capsules around the world, a spline script was used:
+</p>
+      <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/capsule2.gif" alt="Your GIF">
+        </div>
+    </div> 
+	
+<p class="" style="white-space:pre-wrap;"><br><strong>Misc: Plasma Tubes</strong><br>
+The plasma tubes are a combination of effects, one shader to control the liquid of the tube itself and a series of vfx to give the live effect of bubbling water.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/plasma1.gif" alt="Your GIF">
+        </div>
+    </div> 
+	
+<p class="" style="white-space:pre-wrap;"><br><strong>Misc: Barrier</strong><br>
+The barrier shader is a standard plasma shader used to block the way to the player, as an affordance. The shader consists on two textures, one used as a main albedo, which consists in the stripes we can clearly see, and a second texture, a mask which is used to generate the noise when the barrier is opened.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/barrier1.gif" alt="Your GIF">
+        </div>
+    </div> 	
+	
+<p class="" style="white-space:pre-wrap;"><br><strong>Misc: Footsteps</strong><br>
+To generate footsteps for the player and all the npcs present in the game, the vfx graph system was used. This system uses the gpu to instantiate dozens of projected decals with a minimal cost.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/steps1.gif" alt="Your GIF">
+        </div>
+    </div> 	
+	
+<p class="" style="white-space:pre-wrap;"><br><strong>Misc: Others</strong><br>
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/misc2.gif" alt="Your GIF">
+        </div>
+    </div> 	
+	
+<h4><strong>POST PROCESSING EFFECTS</strong><br></h4><p class="" style="white-space:pre-wrap;"><br><strong>Edge Detection</strong><br>
+The edge detection in our game, is created as a post processing effect. Using other methods to generate an outline shape for an entire 3d environment is very costly compared to a fullscreen effect that uses the normal buffer, in order to determine wether an outline should be drawn or not. The following image shows the difference between having and not having an outline in the game.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/edge2.png" alt="Your GIF">
+        </div>
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/edge1.png" alt="Your GIF">
+        </div>
+    </div>
+
+<p class="" style="white-space:pre-wrap;">
+One of the main challenges of the edge detection method was to not write the line in front of any volumetric light. Due to the nature of the HDRP workflow, this turns out to be a difficult task, since the volumetric buffer is written in a very early stage of the pipeline. To solve this problem, a read to the VBuffer is done in order to reduce the intensity of the outline depending on the values from the buffer.
+</p>
+	<div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/edge3.png" alt="Your GIF">
+        </div>
+    </div>
+	
+<p class="" style="white-space:pre-wrap;"><br><strong>Sonar Wave</strong><br>
+The sonar wave effect, inspired from the sonar effect of metal gear solid, is a postprocessing effect used as a mechanic where a sonar pulse is thrown from the player position and reveals enemies and mission objects. The shader uses a mask and the depth buffer to traverse a wave through the scene. On the other side, an outline mask is generated using a cpu script that iterates through the target objects and detects whether the wave has reached each object or not.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/sonar1.gif" alt="Your GIF">
+        </div>
+    </div> 
+	
+<p class="" style="white-space:pre-wrap;"><br><strong>Shadow Powers</strong><br>
+The shadow powers is a post processing effect added in the screen that is used when Ayana is merged in the shadows. The idea behind the effect is that give a shadow blending feeling to the player while using the main mechanic. In the following image, we can see how this effect, which consist of a mask an a random noise, with a final touch of chromatic aberration.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/powers1.gif" alt="Your GIF">
+        </div>
+    </div> 
+	
+<p class="" style="white-space:pre-wrap;"><br><strong>Digital Glitch</strong><br>
+One of the mechanics used by the enemies of Ayana, is the inhibitor. The inhibitor is a nonlethal weapon that enemies shoot at Ayana in order to block her from using his shadow powers. To give feedback to the player that Ayana is inhibited, a post processing glitch effect was created. This effect can be seen in the following image. 
+
+It consists of a pixelated mask randomly used along the screen and a glitch distortion effect made 
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/glitch1.gif" alt="Your GIF">
+        </div>
+    </div> 	
+	
+<p class="" style="white-space:pre-wrap;"><br><strong>UI Dust Glow</strong><br>
+We wanted to make our UI alive. To do so, in this case, I created a glow dust effect, which can be seen in the following image. It is exaggerated to be better seen.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/ui1.gif" alt="Your GIF">
+        </div>
+    </div> 	
+	
   <div class="project-controls">
     <div>
       <div id="projectNav"><span class="prev-project disabled">prev</span> / <span class="next-project">next</span></div>
