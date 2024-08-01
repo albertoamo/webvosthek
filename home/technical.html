@@ -349,6 +349,153 @@ We wanted to make our UI alive. To do so, in this case, I created a glow dust ef
         </div>
     </div> 	
 	
+	
+<h4><strong>VFX</strong><br></h4>
+<p>I wasn’t in charge of the creation of the particles for the game, but I made a few systems which were finally included in the final build. A few them are shown:</p>
+<p class="" style="white-space:pre-wrap;"><strong>Helios Sun VFX</strong><br>
+The sun is a key core in the narrative of the game, as it represents a dyson semisphere, the energy source from helios. I represented this sun as a particle. The sun effect is a vfx graph particle which consist in millions of billboards, dots, which are run in the gpu. 
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/vfx1.gif" alt="Your GIF">
+        </div>
+    </div>
+	
+<p class="" style="white-space:pre-wrap;"><br><strong>Spline Rat VFX</strong><br>
+The rats FX is a vfx graph particle which we used to give some dynamism and realism to our static scenes. The vfx consist of a mesh that is moved along an spline using vfx graph. At the same time, rats are using a custom shader I made, which uses the vertex position of the rats to make them bounce.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/vfx2.gif" alt="Your GIF">
+        </div>
+    </div> 	
+
+<p class="" style="white-space:pre-wrap;"><br><strong>Point Cache VFX</strong><br>
+In order to render millions of particle instance at the same, the GPU must be used. In our case, many of our particles were initially created using the old Shuriken system. To improve the final performance of the game, most of these particles were ported to the newer VFX Graph. The following image, shows dozens of particles at the same time with almost no cost at our most density complex level.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/vfx3.gif" alt="Your GIF">
+        </div>
+    </div> 		
+<p><br>
+In order to do so, we use the point cache method, which together with a texture2d that is used as positional data, allow us to place thousands of particle instances with almost no cost. To achieve this, I created a custom property binder, which is used to retrieve all particles in the scene, disable them, and generate the texture2d which is used as positional input in our vfx graph.
+</p>	
+
+<br>
+<h3><strong>Tools Programming</strong><br></h3><br>
+<strong>Console Commands</strong><br>
+<p class="" style="white-space:pre-wrap;">
+In our game, as many other games has a command console system. The command console system allow us to quickly debug and setup game parameters by using player input. The same system is used to hold the configuration options from the game, which are later displayed by the UI in a more user friendly way.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/tools1.png" alt="Your GIF">
+        </div>
+    </div>		
+	
+<strong>Decal Editor</strong><br>
+<p class="" style="white-space:pre-wrap;">
+The decal editor is a powerful tool created with the aim of simplifying the process of adding decals to the game and improving the overall performance. In this case, two types of decals can be created, simple quad based decals, and projector decals.
+The tool also allows us to quickly select the decal we want among the list, and place it in the scene using the placement tool, which casts position targets against scene geometry and allows to place the decal milimetrically to the position we want.
+
+The projector decal shader uses de D-buffer from HDRP but with slight modifications to avoid performance related issues that causes instancing to break on default HDRP systems.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/tools2.png" alt="Your GIF">
+        </div>
+    </div>	
+	
+<strong>Resource Manager</strong><br>
+<p class="" style="white-space:pre-wrap;">
+The resources manager is a tool that allow us to determine which meshes are being overused, which textures are too big, which materials are unnecessary.
+
+The process of using the tool is very simple. In editor mode, press Calculate, in order to process all the information from the scene. Once done, the table will be filled with the information of the asset data.
+
+We have to consider four columns of the tool.
+→ Textures: Identifies each texture being used, size, and number of materials and gameobjects being used.
+→ Materials: Identifies each material in use, its shader and number of gameobjects.
+→ Meshes: Identifies each mesh being used, its size and number of gameobjects and batches involved.
+→ Missing: Identifies all objects with missing information. These should be repaired or removed.
+In general terms, the tool allows us to order by number of game objects, by size, number of static batches and all the different objects present in the scene. With this tool the process of reducing mesh materials and identifying meshes that can be batched together should be easier, as to identify those objects, or materials that are not used wisely.
+
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/tools3.png" alt="Your GIF">
+        </div>
+    </div>	
+	
+<strong>Prefab Spawner</strong><br>
+<p class="" style="white-space:pre-wrap;">
+The spawner module is a tool that was created with the aim to help the artist to place objects such as props in the scene in a faster way.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/tools4.png" alt="Your GIF">
+        </div>
+    </div>	
+		
+<strong>Mission Editor</strong><br>
+<p class="" style="white-space:pre-wrap;">
+The mission system is an standalone system that allow us to create missions and its tasks in order to reach/complete objectives within the game. The system is composed of mission Trees, which contain missions, and these missions contain tasks within them.
+
+The following blueprint editor was created in order to iterate through the content and develop the missions architecture in the final game.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/tools5.png" alt="Your GIF">
+        </div>
+		        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/tools6.png" alt="Your GIF">
+        </div>
+    </div>		
+	
+<strong>Export Tools</strong><br>
+<p class="" style="white-space:pre-wrap;">
+ The export tools are a series of Tools created in 3DSMax and Unity in order to precisely import objects into Unity in a fast and safe way, meeting all the requirements from the project.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/tools7.png" alt="Your GIF">
+            <img width="80%" src="../images.squarespace-cdn.com/tools8.png" alt="Your GIF">
+        </div>
+    </div>		
+
+<strong>Quick Access Level Tool</strong><br>
+<p class="" style="white-space:pre-wrap;">
+The quick access tool is a menu tab added to Unity, in order to load our set of custom additives scenes that belong to a level. This tool allows us to iterate faster when switching between levels.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/tools9.png" alt="Your GIF">
+        </div>
+    </div>	
+
+<h3><strong>Performance</strong><br> </h3>
+
+<p class="" style="white-space:pre-wrap;">
+TO-DO
+</p>
+<br><br>
+      <div id="projectPages" data-collection-id="">
+      <h2 class="project-title">Atlas Fate: Between light & darkness</h2>
+          <div class="project-description"><p class="" style="white-space:pre-wrap;"><strong>Engine:</strong>Custom (DirectX)<br><strong>Languages:</strong> C++, HLSL, MaxScript, Python<br><strong>Tools: </strong>FMOD, Cal3D, ImGUI, Renderdoc, Nvidia Nsight<br> 
+Atlas fate is a custom engine project that served as a base for the future Ereban game. The game engine is coded from scratch using DirectX API, together with the PhysX engine, FMOD, LUA and CAL3D for animations.
+The engine features a deferred renderer, a custom particle system, custom volumetric lighting among other state of the art features for the year it was developed.
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="80%" src="../images.squarespace-cdn.com/atlas1.png" alt="Your GIF">
+        </div>
+    </div>	
+
+<p class="" style="white-space:pre-wrap;">
+<h3>TO-DO</h3></p>
+
+
+</div>
+
   <div class="project-controls">
     <div>
       <div id="projectNav"><span class="prev-project disabled">prev</span> / <span class="next-project">next</span></div>
