@@ -180,7 +180,7 @@ Many different gadgets and other elements are added to the game, to add a second
             <img width="100%" src="../images.squarespace-cdn.com/gp4.gif" alt="Your GIF">
         </div>
     </div>
-	<br><br>
+	
 	  <h3><strong>Graphics Programming: </strong><br> </h3>
 <p><br>
 In terms of graphics programming, we have to distinguish two periods of the game. A first period based in the built-in rendering pipeline, were graphics were more cartoon, and the final version of the game, built using HDRP with a more realistic graphics.
