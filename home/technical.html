@@ -133,7 +133,7 @@
     <section id="page" role="main" data-content-field="main-content">
       <!-- CATEGORY NAV -->
       <div id="projectPages" data-collection-id="">
-      <h2 class="project-title">Ereban Shadow Legacy</h2>
+      <a href="www.ereban.com"><h2 class="project-title">Ereban Shadow Legacy</h2></a>
           <div class="project-description"><p class="" style="white-space:pre-wrap;"><strong>Engine:</strong> Unity<br><strong>Languages:</strong> C#, HLSL, MaxScript, Python<br><strong>Tools: </strong>Shadergraph, VFXGraph, Renderdoc, Nvidia Nsight<br> 
 In this first part of the technical breakdown we will be talking about Ereban Shadow legacy technical challenges and some of the different solutions that were created during the development to improve some of the problems that such a technical challenging mechanic and ambitious graphic style generated to the development team.
 
@@ -600,7 +600,7 @@ TO-DO
 <br><br>
 </div>
       <div id="projectPages" data-collection-id="">
-      <h2 class="project-title">Atlas Fate: Between light & darkness</h2>
+      <a href="www.atlasfate.com"><h2 class="project-title">Atlas Fate: Between light & darkness</h2></a>
           <div class="project-description"><p class="" style="white-space:pre-wrap;"><strong>Engine:</strong>Custom (DirectX)<br><strong>Languages:</strong> C++, HLSL, MaxScript, Python<br><strong>Tools: </strong>FMOD, Cal3D, ImGUI, Renderdoc, Nvidia Nsight<br> 
 Atlas fate is a custom engine project that served as a base for the future Ereban game. The game engine is coded from scratch using DirectX API, together with the PhysX engine, FMOD, LUA and CAL3D for animations.
 <br>The engine features a deferred renderer, a custom particle system, custom volumetric lighting among other state of the art features for the year it was developed.
@@ -634,6 +634,7 @@ Atlas fate is a custom engine project that served as a base for the future Ereba
 
     <p>The character controller is based on a finite state machine (FSM) that was previously designed with a state diagram during the design phase. This state machine was implemented in the game's code using the FSM class.</p>
     <p>The FSM class allows maintaining a series of states for the player, as well as a series of transitions between these states, determined by one or more variables. </p>
+    <p>The following <b><u><a href="https://github.com/albertoamo/Atlas-Fate-Between-Light-and-Darkness/tree/master/source/components">LINK</a></b></u> contains all the source code related to gameplay.</p>
 
         <p>Regarding the physics of the engine, an abstract layer was developed to manage the physics of the player and the environment, using Unity as a reference.<br><br></p>
     <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
@@ -659,6 +660,7 @@ The code was restructured into the physics_collider.cpp class, which contains ac
 <p class="" style="white-space:pre-wrap;">
 During the development of Atlas fate, I was in charge of developing all the graphics related core elements from the engine and the game. 
 I was in charge of the creation of the deferred renderer and the whole rendering pipeline that was later used in the game.
+<br>The following <b><u><a href="https://github.com/albertoamo/Atlas-Fate-Between-Light-and-Darkness/tree/master/source/render">LINK</a></b></u> contains the source code for the rendering pipeline of the engine.
 <br>Along of other key features of the game, we have to mention the following ones:
 
 </p>
@@ -674,7 +676,9 @@ A few modifications were later added to improve performance and functionality gi
         <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
             <img width="100%" src="../images.squarespace-cdn.com/atlasf3.jpg" alt="Your GIF">
         </div>
-    </div> <br>
+    </div>
+    <br><p>The following <b><u><a href="https://github.com/albertoamo/Atlas-Fate-Between-Light-and-Darkness/blob/master/Bin/data/shaders/pbr_vol_instanced.fx">LINK</a></b></u> contains the shader source code for volumetric lighting.</p>
+    <br>
 <p class="" style="white-space:pre-wrap;"><strong>Compute Shaders / Instancing</strong><br>
 Among many different rendering techniques used, instancing was extensively used in order to reduce draw calls drastically.
 Also in some situations instancing wasn't enough, so a workaround was needed in order to get decent performance. One of these situations was stars rendering. In our case, we wanted to render thousands of stars in our sky. To do so, we created a particle system that, together with the use of compute shaders allowed us to have the desired effect, as shown in the following image:</p>
@@ -682,14 +686,18 @@ Also in some situations instancing wasn't enough, so a workaround was needed in 
         <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
             <img width="100%" src="../images.squarespace-cdn.com/atlasf4.jpg" alt="Your GIF">
         </div>
-    </div> <br>
+    </div>
+    <br><p>The following <b><u><a href="https://github.com/albertoamo/Atlas-Fate-Between-Light-and-Darkness/blob/master/Bin/data/shaders/compute_particles.fx">LINK</a></b></u> contains the shader source code for compute shaders and instanced particles.</p>
+    <br>
 <p class="" style="white-space:pre-wrap;"><strong>Parallax Mapping</strong><br>
 We wanted to have a more realistic effect on some surfaces. To achieve this, one of the techniques used was parallax mapping. The method focus on shifting uvs in the shader, which allow us to give perception of depth per pixel. The following image shows how this was achieved in the rock textures from the walls. Also instanced grass is shown: </p>
     <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
         <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
             <img width="100%" src="../images.squarespace-cdn.com/atlasf5.jpg" alt="Your GIF">
         </div>
-    </div> <br>
+    </div> 
+    <br><p>The following <b><u><a href="https://github.com/albertoamo/Atlas-Fate-Between-Light-and-Darkness/blob/master/Bin/data/shaders/parallax.fx">LINK</a></b></u> contains the shader source code for parallax mapping.</p>
+    <br>
 
 <p class="" style="white-space:pre-wrap;"><strong>Holographic Shaders</strong><br>
 Different holographic shaders were also created for the game. These combine noise pattersn together with scanline masks to create the desired cyberpunk effect in the game.</p>
@@ -697,7 +705,8 @@ Different holographic shaders were also created for the game. These combine nois
         <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
             <img width="100%" src="../images.squarespace-cdn.com/atlasf6.jpg" alt="Your GIF">
         </div>
-    </div> <br>
+    </div>
+    <br><p>The following <b><u><a href="https://github.com/albertoamo/Atlas-Fate-Between-Light-and-Darkness/blob/master/Bin/data/shaders/hologram.fx">LINK</a></b></u> contains the shader source code for holographic shaders.</p>
 
 <p class="" style="white-space:pre-wrap;"><strong>Post Processing: Bloom + Lens Flare/Lens Dirt</strong><br>
 The bloom of the game engine was implemented. Also to add a little bit of fanciness to our game, we also added the famous lens flare effect, as an screen space effect, together with lens dirt as it can be seen in the following images:</p>
@@ -705,23 +714,23 @@ The bloom of the game engine was implemented. Also to add a little bit of fancin
         <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
             <img width="100%" src="../images.squarespace-cdn.com/atlasf7.jpg" alt="Your GIF">
         </div>
-    </div> <br>
+    </div> 
+    <br><p>The following <b><u><a href="https://github.com/albertoamo/Atlas-Fate-Between-Light-and-Darkness/blob/master/Bin/data/shaders/bloom.fx">LINK</a></b></u> contains the shader source code for post process bloom.</p>
 <p class="" style="white-space:pre-wrap;"><strong>Post Processing: Sonar Wave</strong><br>
 The sonar wave effect, inspired from the sonar effect of metal gear solid, is a postprocessing effect used as a mechanic where a sonar pulse is thrown from the player position and reveals enemies and mission objects. The shader uses a mask and the depth buffer to traverse a wave through the scene. On the other side, an outline mask is generated using a cpu script that iterates through the target objects and detects whether the wave has reached each object or not.</p>
 <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
         <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
             <img width="100%" src="../images.squarespace-cdn.com/atlasf8.jpg" alt="Your GIF">
         </div>
-    </div> <br>
-
+    </div><br>
 <p class="" style="white-space:pre-wrap;"><strong>Post Processing: Screen Space Reflections (SSR) </strong><br>
 Rendering technique used to create reflective surfaces by tracing reflections in screen space. In the following image the result can be seen (exaggerated):</p>
     <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
         <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
             <img width="100%" src="../images.squarespace-cdn.com/atlasf9.jpg" alt="Your GIF">
         </div>
-    </div> <br>
-
+    </div>
+    <br><p>The following <b><u><a href="https://github.com/albertoamo/Atlas-Fate-Between-Light-and-Darkness/blob/master/Bin/data/shaders/postfx.fx">LINK</a></b></u> contains the shader source code for all the postprocessing effects from the game.</p>
 <p class="" style="white-space:pre-wrap;"><strong>Particles </strong><br>
 In order to implement the particles of the engine I took inspiration from other commercial engines such as Unity and Unreal.<br> The particle system uses in extense instancing and compute shaders in order to render thousands of particles per frame.
 The system also, uses a series of engine tools that I created in order to easily edit this particles. In the following image we can see how the tools are embeded in the engine for debug purposes.</p>
@@ -758,7 +767,8 @@ Regarding the MaxScript tools, I want to highlight the creation of an export too
         <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
             <img width="100%" src="../images.squarespace-cdn.com/atlasf14.jpg" alt="Your GIF">
         </div>
-    </div> <br>
+    </div>
+    <br><p>The following <b><u><a href="https://github.com/albertoamo/Atlas-Fate-Between-Light-and-Darkness/tree/master/maxscript">LINK</a></b></u> contains the source code for all the maxscript tools created.</p>
 
 <p class="" style="white-space:pre-wrap;">
 
