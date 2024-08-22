@@ -180,7 +180,14 @@ Many different gadgets and other elements are added to the game, to add a second
             <img width="100%" src="../images.squarespace-cdn.com/gp4.gif" alt="Your GIF">
         </div>
     </div>
-	<br><br>
+
+<p><br>
+    In the following links, some snippets from the code of Ereban Shadow Legacy are shown:
+    <br><br><b>- <u><a href="https://gist.github.com/albertoamo/95d12b22cb2ddb72d1ff3ae415a87551">Shadow detection:</a></b></u> Simple system that was in charge to manage and decide wether a point is in shadows or not. This method uses physical bounding volumes of light, with the combination of raycasting to determine if we are in shadows.
+    <br><br><b>- <u><a href="https://gist.github.com/albertoamo/479b4ff8cb5b7dfaa4dd5fa7d84dfd19">Game State Machine:</a></b></u> System modules and state machine architecture of the game.
+    <br><br><b>- <u><a href="https://gist.github.com/albertoamo/81db3f4c0a53f11e4f7578e5cc33c658">CVAR System:</a></b></u> System to manage the different states of the game by the use of the command pattern.
+</p>	
+	<br>
 	  <h3><strong>Graphics Programming: </strong><br> </h3>
 <p><br>
 In terms of graphics programming, we have to distinguish two periods of the game. A first period based in the built-in rendering pipeline, were graphics were more cartoon, and the final version of the game, built using HDRP with a more realistic graphics.
@@ -235,7 +242,9 @@ The following image shows the different parameters and setup for the shader:
             <img width="100%" src="../images.squarespace-cdn.com/toon3.gif" alt="Your GIF">
         </div>
     </div>
-	
+<p><br>
+    The following link is a snippet from the code of the <b><u><a href="https://gist.github.com/albertoamo/6a78e7adbfe8888dda80e566d544c4ef">LitToon shader.</a></b></u>
+</p>	
 <br>	
 <p class="" style="white-space:pre-wrap;"><strong>Player Dissolve, Teleport & Distortion effects </strong>
 The teleport effect is a little bit more complex. The procedure is similar to the dissolve, but in this case, using a pixelated texture, to give more of a digital disintegration, together with a holographic effect. Both effects are shown with a slower timescale in order to better visualize them.
@@ -262,6 +271,15 @@ Finally, some of the enemies also feature a distortion glitch effect. These enem
         </div>
     </div>
 
+<p><br>
+    The following image, shows part of the code from the stealth effect, which belongs to a second shader implemented with shadergraph, together with the help of some HLSL custom functions. For a better understanding, inspect the image to zoom-in.
+</p>	
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/graph1.png" alt="Your GIF">
+        </div>
+    </div>
+
 <p class="" style="white-space:pre-wrap;"><br><strong>DrawMeshIndirect Foliage</strong><br>
 Due to the complexity of the foliage of the game, which we can count in hundred thousand instances per level, I had to implement a Chunk/Patch system to render all the grass in a more performance wise way. This patch system uses a Quadtree to determine in which chunk the camera is, and determine the rendering of neighbor patches according to it.
 
@@ -285,9 +303,18 @@ In terms of rendering, drawmeshinstancedindirect is used to render each instance
 <p><br>
 In the previous video, we can see how the different chunks of grass pop, done on purpose to show how the different lod chunks appear when the system working. A fade effect was later added to reduce this effect.
 <br><br>
-The system dramatically reduced 2ms of render time to 0.15ms.
-</p>
-  
+The following <b><u><a href="https://gist.github.com/albertoamo/63f62882d716614a6db2a6b8ff773d43">LINK</a></b></u> is a snippet from the code of the foliage instancing, both scripting and shader. 
+    <br><br>Also, together with the previous code, a shadergraph was implemented, in order to do the soft part of the rendering, which is the actual lighting of the foliage, as shown in the following image.
+</p>	
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/graph2.png" alt="Your GIF">
+        </div>
+    </div>
+ <br>
+ <p>
+ The system dramatically reduced 2ms of render time to 0.15ms. 
+ </p><br>
 <p class="" style="white-space:pre-wrap;"><strong>Misc: Capsule Instanced Shader</strong><br>
 We needed to render a high amount of drone capsules, with different setup on their helix and different movement. To do so used shaders in order to control the rotation of the helix and the spinning fan. The same shader is applied to every drone, which, with instancing, you can control these parameters and make the illusion of many different capsules but being rendered at the same time. In the first picture, we can see how the different parts of the helix, are painted with different vertex colors, in order to control them individually. 
 </p>
@@ -305,7 +332,13 @@ The given video, shows the drones at work, with the shadergraph sample provided 
             <img width="100%" src="../images.squarespace-cdn.com/capsule2.gif" alt="Your GIF">
         </div>
     </div> 
-	
+    <br><br>
+      <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/graph3.png" alt="Your GIF">
+        </div>
+    </div> 
+    
 <p class="" style="white-space:pre-wrap;"><br><strong>Misc: Plasma Tubes</strong><br>
 The plasma tubes are a combination of effects, one shader to control the liquid of the tube itself and a series of vfx to give the live effect of bubbling water.
 </p>
@@ -322,8 +355,15 @@ The barrier shader is a standard plasma shader used to block the way to the play
         <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
             <img width="100%" src="../images.squarespace-cdn.com/barrier1.gif" alt="Your GIF">
         </div>
+    </div> 
+    
+    <br><br>
+      <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/graph4.png" alt="Your GIF">
+        </div>
     </div> 	
-	
+
 <p class="" style="white-space:pre-wrap;"><br><strong>Misc: Footsteps</strong><br>
 To generate footsteps for the player and all the npcs present in the game, the vfx graph system was used. This system uses the gpu to instantiate dozens of projected decals with a minimal cost.
 </p>
@@ -340,6 +380,10 @@ To generate footsteps for the player and all the npcs present in the game, the v
             <img width="100%" src="../images.squarespace-cdn.com/misc2.gif" alt="Your GIF">
         </div>
     </div> 	
+
+<p><br>
+    The following <b><u><a href="https://gist.github.com/albertoamo/3532962395bdcd975f84fd3c478e39c7">LINK</a></b></u> contains a series of shaders from old built-in pipeline from the early versions of the project. 
+</p>	
 	
 <h4><strong>POST PROCESSING EFFECTS</strong><br></h4><p class="" style="white-space:pre-wrap;"><br><strong>Edge Detection</strong><br>
 The edge detection in our game, is created as a post processing effect. Using other methods to generate an outline shape for an entire 3d environment is very costly compared to a fullscreen effect that uses the normal buffer, in order to determine wether an outline should be drawn or not. The following image shows the difference between having and not having an outline in the game.
@@ -361,6 +405,10 @@ One of the main challenges of the edge detection method was to not write the lin
             <img width="100%" src="../images.squarespace-cdn.com/edge3.png" alt="Your GIF">
         </div>
     </div>
+
+<p><br>
+    The following <b><u><a href="https://gist.github.com/albertoamo/3af8daf1dff4e1bc351449920450acdc">LINK</a></b></u> contains the snippet code from the edge detection, both shader and scripts. 
+</p>	
 	
 <p class="" style="white-space:pre-wrap;"><br><strong>Sonar Wave</strong><br>
 The sonar wave effect, inspired from the sonar effect of metal gear solid, is a postprocessing effect used as a mechanic where a sonar pulse is thrown from the player position and reveals enemies and mission objects. The shader uses a mask and the depth buffer to traverse a wave through the scene. On the other side, an outline mask is generated using a cpu script that iterates through the target objects and detects whether the wave has reached each object or not.
@@ -370,7 +418,11 @@ The sonar wave effect, inspired from the sonar effect of metal gear solid, is a 
             <img width="100%" src="../images.squarespace-cdn.com/sonar1.gif" alt="Your GIF">
         </div>
     </div> 
-	
+
+<p><br>
+    The following <b><u><a href="https://gist.github.com/albertoamo/56bc8c55b65d874ee2851328459e6e80">LINK</a></b></u> contains the snippet code from the sonar wave effect, both shader and scripts. 
+</p>	
+
 <p class="" style="white-space:pre-wrap;"><br><strong>Shadow Powers</strong><br>
 The shadow powers is a post processing effect added in the screen that is used when Ayana is merged in the shadows. The idea behind the effect is that give a shadow blending feeling to the player while using the main mechanic. In the following image, we can see how this effect, which consist of a mask an a random noise, with a final touch of chromatic aberration.
 </p>
@@ -379,7 +431,11 @@ The shadow powers is a post processing effect added in the screen that is used w
             <img width="100%" src="../images.squarespace-cdn.com/powers1.gif" alt="Your GIF">
         </div>
     </div> 
-	
+
+<p><br>
+    The following <b><u><a href="https://gist.github.com/albertoamo/d468045832f8388707302656324ab8a2">LINK</a></b></u> contains the snippet code from the shadow powers effect, both shader and scripts. 
+</p>	
+
 <p class="" style="white-space:pre-wrap;"><br><strong>Digital Glitch</strong><br>
 One of the mechanics used by the enemies of Ayana, is the inhibitor. The inhibitor is a nonlethal weapon that enemies shoot at Ayana in order to block her from using his shadow powers. To give feedback to the player that Ayana is inhibited, a post processing glitch effect was created. This effect can be seen in the following image. 
 
@@ -390,17 +446,26 @@ It consists of a pixelated mask randomly used along the screen and a glitch dist
             <img width="100%" src="../images.squarespace-cdn.com/glitch1.gif" alt="Your GIF">
         </div>
     </div> 	
-	
+
+<p><br>
+    The following <b><u><a href="https://gist.github.com/albertoamo/00c82843f0903c9bce2408cbb4e61ad5">LINK</a></b></u> contains the snippet code from the digital glitch effect, both shader and scripts. 
+</p>	
+
 <p class="" style="white-space:pre-wrap;"><br><strong>UI Dust Glow</strong><br>
-We wanted to make our UI alive. To do so, in this case, I created a glow dust effect, which can be seen in the following image. It is exaggerated to be better seen.
+We wanted to make our UI alive. To do so, in this case, I created a glow dust effect, which can be seen in the following image. It is exaggerated to be better seen. Part of the shader, is shown in the following shadergraph, which together with some parts of custom hlsl functions, generates the effect.
 </p>
     <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
         <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
             <img width="100%" src="../images.squarespace-cdn.com/ui1.gif" alt="Your GIF">
         </div>
     </div> 	
-	
-	
+    <br><br>
+	<div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/graph5.png" alt="Your GIF">
+        </div>
+    </div>
+<br><br>	
 <h4><strong>VFX</strong><br></h4>
 <p>I wasn’t in charge of the creation of the particles for the game, but I made a few systems which were finally included in the final build. A few them are shown:</p>
 <p class="" style="white-space:pre-wrap;"><strong>Helios Sun VFX</strong><br>
@@ -457,7 +522,11 @@ The projector decal shader uses de D-buffer from HDRP but with slight modificati
             <img width="100%" src="../images.squarespace-cdn.com/tools2.png" alt="Your GIF">
         </div>
     </div>	
-	
+
+<p><br>
+    The following <b><u><a href="https://gist.github.com/albertoamo/54fd272298a6998b35b64efdbad44b8f">LINK</a></b></u> contains the snippet code from the decal editor, both shader and scripts. 
+</p>	
+
 <br><strong>Resource Manager</strong><br>
 <p class="" style="white-space:pre-wrap;">
 The resources manager is a tool that allow us to determine which meshes are being overused, which textures are too big, which materials are unnecessary.
@@ -534,20 +603,164 @@ TO-DO
       <h2 class="project-title">Atlas Fate: Between light & darkness</h2>
           <div class="project-description"><p class="" style="white-space:pre-wrap;"><strong>Engine:</strong>Custom (DirectX)<br><strong>Languages:</strong> C++, HLSL, MaxScript, Python<br><strong>Tools: </strong>FMOD, Cal3D, ImGUI, Renderdoc, Nvidia Nsight<br> 
 Atlas fate is a custom engine project that served as a base for the future Ereban game. The game engine is coded from scratch using DirectX API, together with the PhysX engine, FMOD, LUA and CAL3D for animations.
-The engine features a deferred renderer, a custom particle system, custom volumetric lighting among other state of the art features for the year it was developed.
-<hr><br><br>
-
+<br>The engine features a deferred renderer, a custom particle system, custom volumetric lighting among other state of the art features for the year it was developed.
+<br>I was the lead programmer for the project. I was in charge of graphics, gameplay, physics and tools programming, and also involved in design tasks.
+<hr><br>
 		</div>
 	</div>
   <div id="projectPages" data-collection-id="" style="padding-left: 80px; padding-right: 80px;">
-	<div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+  	  <h3><strong>Gameplay Programming: </strong><br></h3><br> 
+        <p> The following videos belong to the final launch trailer of the game and a gameplay video.</p>
+        <div class="image-list">
+			<div class="image">
+				<iframe width=100% height="512" src="https://www.youtube.com/embed/WUfpafyzgJI?si=lmlyKNf5AzzP0Nfp&amp;autoplay=1&mute=1;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</div>
+        </div>
+        <br>
+        <div class="image-list">
+			<div class="image">
+				<iframe width=100% height="512" src="https://www.youtube.com/embed/fOAoZXOALzE?si=WE0RmtEhFtSN4don&amp;autoplay=1&mute=1;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</div>
+        </div>
+        <br>
+        <p> The following image shows how the development of the game evolved, from whitebox to final product. The prototype and vertical slice of the game was developed during four milestones.</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
         <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
             <img width="100%" src="../images.squarespace-cdn.com/atlas1.png" alt="Your GIF">
         </div>
     </div>	
+    <br>
+    <p>I want to highlight the creation of the main mechanic based on shadow detection and the character controller, which can use shadows to merge and traverse through them both vertically (walls) and horizontally (floors). I was responsible for developing the motion system through the camera, as well as the character movement and the main mechanic.</p>
+
+    <p>The character controller is based on a finite state machine (FSM) that was previously designed with a state diagram during the design phase. This state machine was implemented in the game's code using the FSM class.</p>
+    <p>The FSM class allows maintaining a series of states for the player, as well as a series of transitions between these states, determined by one or more variables. </p>
+
+        <p>Regarding the physics of the engine, an abstract layer was developed to manage the physics of the player and the environment, using Unity as a reference.<br><br></p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img src="../images.squarespace-cdn.com/atlasf1.jpg" alt="Your GIF">
+        </div>
+    </div>
+    <p><br>
+The code was restructured into the physics_collider.cpp class, which contains actor information and collider properties at the PhysX level. This class uses a factory pattern to create different types of colliders based on the specified shape. Filters were also added for collision detection using different layers.
+<br><br>Collider management was improved by enabling the creation of colliders through convex meshes, which is crucial for accurately detecting shadows at specific points. Additionally, functions were developed for querying the scene, such as Raycast and Sweep. Raycast is particularly important for testing against colliders, while Sweep is used to detect volumes within colliders and anticipate collision issues. </p>
+
+    <p>On the other side, the main mechanic allows the player to merge into shadows and move through them. Once inside the shadows, the player can move along walls and floors, except for ceilings. Within the main mechanic and the player's movement while in shadow merge, the following essential game features have been programmed:
+    <br><br><b>Shadow Detection:</b> Shadow detection is based on the use of pre-calculated light volumes and raycasting. To achieve this, it was necessary to use the PhysX physics engine. The shadow state controller is located in the <code>shadow_controller.cpp</code> component, which is associated with the player entity. The main idea behind shadow detection is similar to that used in rendering: casting rays from the light source to check for intersections. If an intersection occurs, that point is in shadow. Three types of lights are distinguished:
+                <br><br><strong>&nbsp;&nbsp;&nbsp;- Directional Light:</strong> A ray is cast from the light source to the player.
+                <br><strong>&nbsp;&nbsp;&nbsp;- Spotlight or Point Light:</strong> It checks if the player is within the light volume, which has been pre-calculated. If so, a ray is cast from the light source.
+            If any of the above tests are positive, the player is in a lighted area and therefore cannot merge into the shadows.
+        <br><br>
+        <b>Shadow Merge Movement:</b> The player's main movement while in the shadows is achieved using raycasts that allow detecting when the player changes surfaces. Two types of tests are performed:
+                <br><br><strong>&nbsp;&nbsp;&nbsp; - Concave Test:</strong> By casting a ray at a certain offset diagonally toward the ground, it detects if the player will change surfaces at an angle greater than 90 degrees, such as moving from a wall to a roof.
+                <br><strong>&nbsp;&nbsp;&nbsp; - Convex Test:</strong> By casting a ray horizontally, it determines if the player is moving from a floor to a wall.
+    </p>
+<br><br><h3><strong>Graphics Programming: </strong><br></h3>
+<p class="" style="white-space:pre-wrap;">
+During the development of Atlas fate, I was in charge of developing all the graphics related core elements from the engine and the game. 
+I was in charge of the creation of the deferred renderer and the whole rendering pipeline that was later used in the game.
+<br>Along of other key features of the game, we have to mention the following ones:
+
+</p>
+<p class="" style="white-space:pre-wrap;"><strong>Volumetric Lighting</strong><br>
+The game has state of the art volumetric rendering. The method here was inspired by Lords of the Fallen implementation, shown in its GDC talk. 
+A few modifications were later added to improve performance and functionality given our main mechanic setup. The following images show the results of the volumetric rendering ingame.</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf2.jpg" alt="Your GIF">
+        </div>
+    </div> <br><br>
+      <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf3.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
+<p class="" style="white-space:pre-wrap;"><strong>Compute Shaders / Instancing</strong><br>
+Among many different rendering techniques used, instancing was extensively used in order to reduce draw calls drastically.
+Also in some situations instancing wasn't enough, so a workaround was needed in order to get decent performance. One of these situations was stars rendering. In our case, we wanted to render thousands of stars in our sky. To do so, we created a particle system that, together with the use of compute shaders allowed us to have the desired effect, as shown in the following image:</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf4.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
+<p class="" style="white-space:pre-wrap;"><strong>Parallax Mapping</strong><br>
+We wanted to have a more realistic effect on some surfaces. To achieve this, one of the techniques used was parallax mapping. The method focus on shifting uvs in the shader, which allow us to give perception of depth per pixel. The following image shows how this was achieved in the rock textures from the walls. Also instanced grass is shown: </p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf5.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
+
+<p class="" style="white-space:pre-wrap;"><strong>Holographic Shaders</strong><br>
+Different holographic shaders were also created for the game. These combine noise pattersn together with scanline masks to create the desired cyberpunk effect in the game.</p>
+<div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf6.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
+
+<p class="" style="white-space:pre-wrap;"><strong>Post Processing: Bloom + Lens Flare/Lens Dirt</strong><br>
+The bloom of the game engine was implemented. Also to add a little bit of fanciness to our game, we also added the famous lens flare effect, as an screen space effect, together with lens dirt as it can be seen in the following images:</p>
+<div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf7.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
+<p class="" style="white-space:pre-wrap;"><strong>Post Processing: Sonar Wave</strong><br>
+The sonar wave effect, inspired from the sonar effect of metal gear solid, is a postprocessing effect used as a mechanic where a sonar pulse is thrown from the player position and reveals enemies and mission objects. The shader uses a mask and the depth buffer to traverse a wave through the scene. On the other side, an outline mask is generated using a cpu script that iterates through the target objects and detects whether the wave has reached each object or not.</p>
+<div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf8.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
+
+<p class="" style="white-space:pre-wrap;"><strong>Post Processing: Screen Space Reflections (SSR) </strong><br>
+Rendering technique used to create reflective surfaces by tracing reflections in screen space. In the following image the result can be seen (exaggerated):</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf9.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
+
+<p class="" style="white-space:pre-wrap;"><strong>Particles </strong><br>
+In order to implement the particles of the engine I took inspiration from other commercial engines such as Unity and Unreal.<br> The particle system uses in extense instancing and compute shaders in order to render thousands of particles per frame.
+The system also, uses a series of engine tools that I created in order to easily edit this particles. In the following image we can see how the tools are embeded in the engine for debug purposes.</p>
+
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf10.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
+<p> In the following images we can see some of the results of the particles created:</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf11.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
+        <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf12.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
+
+<br><h3><strong>Tools Programming: </strong><br></h3>
+<p class="" style="white-space:pre-wrap;">
+Creation of tools for artists in 3DS Max using MaxScript, as well as tools included within the engine for editing parameters and the scene.
+
+Regarding the MaxScript tools, I want to highlight the creation of an export tool, along with a series of utility tools, which enabled the artists in the group to learn how to export their own materials into the engine and generate the necessary content.
+</p>
+    <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf13.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
+        <div class="image-list" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
+        <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <img width="100%" src="../images.squarespace-cdn.com/atlasf14.jpg" alt="Your GIF">
+        </div>
+    </div> <br>
 
 <p class="" style="white-space:pre-wrap;">
-<h3>TO-DO</h3></p>
 
 
   <div class="project-controls">
